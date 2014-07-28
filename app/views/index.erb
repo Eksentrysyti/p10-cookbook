@@ -1,0 +1,16 @@
+<div class="container">
+	<% if logged_in? %>
+
+  	<h1 id="user-list">Users</h1>
+		<% @list.each do |user| %>
+			<%=user.name%>
+		<% end %>
+
+	<% else %>
+
+		<h1>Welcome!</h1>
+	
+	<% end %>
+  
+
+</div>
