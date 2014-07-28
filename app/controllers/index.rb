@@ -34,7 +34,6 @@ get '/users/new' do
 end
 
 post '/users' do
-  # @user = User.new(name: params[:user][:name], email: params[:user][:email])
   @user = User.create(params[:user])
   @user.password = params[:user][:password]
   @user.save!

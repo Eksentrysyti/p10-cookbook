@@ -2,9 +2,8 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
-	validates :name, uniqueness: true
+	validates :username, uniqueness: true
 	validates :email, uniqueness: true
-  validates :password, length: {minimum: 6}
 
   include BCrypt
 
