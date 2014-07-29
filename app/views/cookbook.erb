@@ -11,6 +11,9 @@
   
   <div class="ingredient-container">
     <ul class="ingredient-list">
+      <% @ingredients.each do |ingredient| %>
+        <li id="<%=ingredient.id%>"><%=ingredient.name%></li>
+      <% end %>
     </ul>
   </div>
 
