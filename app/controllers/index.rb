@@ -43,8 +43,18 @@ post '/users' do
   redirect "/users/#{@user.id}"
 end
 
-#------------------------------
+#--------- LOGGED IN ----------
 
 get '/users/:id' do
+  @user = User.find(params[:id].to_i)
   erb :cookbook
+end
+
+#--------- INGREDIENTS --------
+
+post '/ingredients' do
+  user = User.find(params[:user_id])
+  ingredient = Ingredient.new(name: params[:ingredient_name])
+  user.ingredients << ingredient
+  {ingredient_name: params[:ingredient_name], ingredient_id: ingredient.id}.to_json
 end
