@@ -1,5 +1,7 @@
 <div class="container">
-  <h1>My Cookbook Control Panel</h1>
+  <div class="user-id" value="<%=@user.id%>" style="display: none;"></div>
+
+  <h1><%=@user.username%>'s Cookbook Control Panel</h1>
 
   <form>
     <input type="text" id="new-ingredient">
