@@ -47,6 +47,7 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id].to_i)
+  @ingredients = @user.ingredients
   erb :cookbook
 end
 
@@ -55,7 +56,6 @@ end
 get '/ingredients' do
   user = User.find(params[:user_id])
   ingredients = user.ingredients
-  # ingredient_names = ingredients.map {|ingredient| ingredient.name}
   ingredients.to_json
 end
 
