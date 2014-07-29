@@ -17,8 +17,10 @@ post '/sessions' do
   @user = User.where(email: params[:email]).first
   if @user.password == params[:password]
   	session[:user_id] = @user.id
+    redirect "/users/#{@user.id}"
+  else
+    redirect '/'
   end
-  redirect '/'
 end
 
 delete '/sessions/:id' do
@@ -38,5 +40,11 @@ post '/users' do
   @user.password = params[:user][:password]
   @user.save!
 
-  redirect '/'
+  redirect "/users/#{@user.id}"
+end
+
+#------------------------------
+
+get '/users/:id' do
+  erb :cookbook
 end
