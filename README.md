@@ -15,7 +15,6 @@ Ever wondered what you could make based on the food ingredients you had on hand?
 * Users can signup and login with authentication
 * Users can add ingredients to their account data
 * Users can make calls to the Yummly API to retrieve recipe data based on "active" ingredients
-* Users can store favorite recipes to account data
 * AJAX/javascript/jQuery to dynamically generate views as needed
 * Basic HTML/CSS style only
 
