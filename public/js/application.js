@@ -1,6 +1,30 @@
-$(document).ready(function () {
-
-  // Optional - Use AJAX to send an HTTP DELETE request for the sign-out link
-  
-
+$(document).ready(function () {  
+	$('.add-ingredient').on('click', addIngredient);
 });
+
+function addIngredient(event){
+	event.preventDefault();
+
+	var newIngredient = $('#new-ingredient').val();
+	$('#new-ingredient').val("");
+
+	var userId = parseInt($('div.user-id').attr("value"));
+
+	var request = $.ajax({
+		url: '/ingredients', 
+		type: 'POST',
+		data: {
+			user_id: userId,
+			ingredient_name: newIngredient
+		}
+	})
+	request.done(addIngredientDOM);
+}
+
+function addIngredientDOM(data){
+	var ingredientId = JSON.parse(data).ingredient_id;
+	var ingredientName = JSON.parse(data).ingredient_name;
+	var ingredientItem = buildIngredient(ingredientName, ingredientId);
+	
+	$('.ingredient-list').append(ingredientItem);
+}
