@@ -52,6 +52,13 @@ end
 
 #--------- INGREDIENTS --------
 
+get '/ingredients' do
+  user = User.find(params[:user_id])
+  ingredients = user.ingredients
+  # ingredient_names = ingredients.map {|ingredient| ingredient.name}
+  ingredients.to_json
+end
+
 post '/ingredients' do
   user = User.find(params[:user_id])
   ingredient = Ingredient.new(name: params[:ingredient_name])
