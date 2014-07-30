@@ -65,3 +65,9 @@ post '/ingredients' do
   user.ingredients << ingredient
   {ingredient_name: params[:ingredient_name], ingredient_id: ingredient.id}.to_json
 end
+
+delete '/ingredients' do
+  ingredient = Ingredient.find(params[:ingredient_id])
+  ingredient.destroy
+  {ingredient_id: params[:ingredient_id]}.to_json
+end

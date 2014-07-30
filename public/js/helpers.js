@@ -5,7 +5,7 @@ function buildIngredient(ingredientName, ingredientId) {
   // Creates an jQueryDOMElement from the ingredientTemplate
   var $ingredient = $(ingredientTemplate);
   // Modifies its text to use the passed-in ingredientName
-  $ingredient.text(ingredientName).attr("id", ingredientId);
+  $ingredient.prepend(ingredientName).attr("id", ingredientId);
   // Returns the jQueryDOMElement to be used elsewhere
   return $ingredient
 }

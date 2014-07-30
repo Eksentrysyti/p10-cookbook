@@ -12,7 +12,10 @@
   <div class="ingredient-container">
     <ul class="ingredient-list">
       <% @ingredients.each do |ingredient| %>
-        <li id="<%=ingredient.id%>"><%=ingredient.name%></li>
+        <li id="<%=ingredient.id%>">
+          <%=ingredient.name%>
+          <a href="#" class="delete-ingredient">X</a>
+        </li>
       <% end %>
     </ul>
   </div>
@@ -20,5 +23,7 @@
 </div>
 
 <div class="ingredient-template" style="display: none;">
-  <li></li>
+  <li>
+    <a href="#" class="delete-ingredient">X</a>
+  </li>
 </div>
