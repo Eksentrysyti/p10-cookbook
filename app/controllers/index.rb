@@ -71,3 +71,10 @@ delete '/ingredients' do
   ingredient.destroy
   {ingredient_id: params[:ingredient_id]}.to_json
 end
+
+#--------- RECIPES ------------
+
+get '/recipes' do
+  user = User.find(params['user_id'].to_i)
+  ingredients = user.ingredients
+end

@@ -52,5 +52,16 @@ function deleteIngredientDOM(data){
 function findRecipes(event){
 	event.preventDefault();
 
-	
+	var userId = parseInt($('div.user-id').attr("value"));
+
+	var request = $.ajax({
+		url: '/recipes', 
+		type: 'GET',
+		data: {user_id: userId}
+	})
+	request.done(findRecipesDOM);
+}
+
+function findRecipesDOM(data){
+	console.log("found recipes")
 }
