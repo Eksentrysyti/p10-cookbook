@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="user-id" value="<%=@user.id%>" style="display: none;"></div>
+
+  <h1><%=@user.username%>'s Cookbook Control Panel</h1>
+
+  <form>
+    <input type="text" id="new-ingredient">
+    <button class="add-ingredient">Add Ingredient</button>
+    <button class="find-recipes">Find Recipes!</button>
+  </form>
+  
+  <div class="ingredient-container">
+    <ul class="ingredient-list">
+      <% @ingredients.each do |ingredient| %>
+        <li id="<%=ingredient.id%>">
+          <%=ingredient.name%>
+          <a href="#" class="delete-ingredient">X</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<div class="ingredient-template" style="display: none;">
+  <li>
+    <a href="#" class="delete-ingredient">X</a>
+  </li>
+</div>
